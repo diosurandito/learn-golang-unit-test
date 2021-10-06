@@ -9,6 +9,44 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// table test
+func TestHelloWorldTable(t *testing.T) {
+	tests := []struct {
+		name     string
+		request  string
+		expected string
+	}{
+		{
+			name:     "Helloword(Dio)",
+			request:  "Dio",
+			expected: "Hello Dio",
+		},
+		{
+			name:     "Helloword(Bayu)",
+			request:  "Bayu",
+			expected: "Hello Bayu",
+		},
+		{
+			name:     "Helloword(Odenk)",
+			request:  "Odenk",
+			expected: "Hello Odenk",
+		},
+		{
+			name:     "Helloword(Gilang)",
+			request:  "Gilang",
+			expected: "Hello Gilang",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := HelloWorld(test.request)
+			assert.Equal(t, test.expected, result, "Result should be "+test.expected)
+		})
+	}
+
+}
+
 // Sub Test
 func TestSubTest(t *testing.T) {
 	t.Run("Sub Test 1", func(t *testing.T) {
